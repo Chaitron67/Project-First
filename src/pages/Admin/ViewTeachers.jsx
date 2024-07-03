@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './admin.css';
 import { getDocs, collection, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
@@ -11,7 +11,7 @@ const ViewTeachers = () => {
 
   const teachersCollectionRef = collection(db, 'teachersData');
 
-  const getTeacherList = async () => {
+  const getTeacherList = useCallback(async () => {
     try {
       const data = await getDocs(teachersCollectionRef);
       const filterData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
@@ -19,7 +19,7 @@ const ViewTeachers = () => {
     } catch (e) {
       console.log(e);
     }
-  };
+  }, [teachersCollectionRef]);
 
   useEffect(() => {
     getTeacherList();

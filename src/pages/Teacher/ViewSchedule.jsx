@@ -1,48 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import "./teacher.css"
-import { getDoc, doc, deleteDoc } from "firebase/firestore"
-import { db } from "../../firebase"
+import React, { useEffect, useState, useCallback } from 'react';
+import './teacher.css';
+import { getDoc, doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const ViewSchedule = ({ teacher }) => {
-  // state variable for modifying schedule : 
-  const [teacherSchedule, setTeacherSchedule] = useState([]);
+  const [teacherSchedule, setTeacherSchedule] = useState(null);
 
-  // to get schedule list at realtime : 
-  const getTeacherSchedule = async () => {
+  const getTeacherSchedule = useCallback(async () => {
     try {
-      const docRef = doc(db, "scheduleData", teacher.teacherID);
+      const docRef = doc(db, 'scheduleData', teacher.teacherID);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        setTeacherSchedule(docSnap.data())
-        console.log(teacherSchedule);
+        setTeacherSchedule(docSnap.data());
       } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
         setTeacherSchedule(null);
       }
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
-  };
+  }, [teacher.teacherID]);
 
   useEffect(() => {
     getTeacherSchedule();
   }, [getTeacherSchedule]);
 
-
-  // onClick of the delete button : 
   const deleteSchedule = async (ID) => {
     try {
-      await deleteDoc(doc(db, "scheduleData", ID));
+      await deleteDoc(doc(db, 'scheduleData', ID));
       getTeacherSchedule();
       setTeacherSchedule(null);
-      window.alert('deleted')
-    }
-    catch (e) {
+      window.alert('Deleted');
+    } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   return (
     <section className='view-schedule-section'>
@@ -52,7 +43,7 @@ const ViewSchedule = ({ teacher }) => {
         </p>
       </div>
       <div className="view-schedule-container tabular-view">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -63,23 +54,28 @@ const ViewSchedule = ({ teacher }) => {
             </tr>
           </thead>
           <tbody>
-            {
-              teacherSchedule ?
-                <tr>
-                  <th scope="row">{teacherSchedule.teacherID}</th>
-                  <td>{teacherSchedule.scheduleDate}</td>
-                  <td>{teacherSchedule.scheduleFromTime}</td>
-                  <td>{teacherSchedule.scheduleToTime}</td>
-                  <td><button className='delete-btn' onClick={() => deleteSchedule(teacherSchedule.teacherID)}>Delete</button></td>
-                </tr>
-                :
-                  `No schedule set, please set the Schedule`
-            }
+            {teacherSchedule ? (
+              <tr>
+                <th scope="row">{teacherSchedule.teacherID}</th>
+                <td>{teacherSchedule.scheduleDate}</td>
+                <td>{teacherSchedule.scheduleFromTime}</td>
+                <td>{teacherSchedule.scheduleToTime}</td>
+                <td>
+                  <button className='delete-btn' onClick={() => deleteSchedule(teacherSchedule.teacherID)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ) : (
+              <tr>
+                <td colSpan="5">No schedule set, please set the Schedule</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ViewSchedule
+export default ViewSchedule;

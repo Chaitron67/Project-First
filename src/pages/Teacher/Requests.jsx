@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import "./teacher.css";
 import { getDocs, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -8,8 +8,7 @@ const Requests = ({ teacher }) => {
   const [requestList, setRequestList] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
 
-  // to get teachers list at realtime
-  const getStudentRequestsList = async () => {
+  const getStudentRequestsList = useCallback(async () => {
     try {
       const data = await getDocs(collection(db, "studentRequests"));
       const filterData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
@@ -18,38 +17,21 @@ const Requests = ({ teacher }) => {
     } catch (e) {
       console.log(e);
     }
-  };
+  }, [teacher.teacherID]);
 
   useEffect(() => {
     getStudentRequestsList();
   }, [getStudentRequestsList]);
 
-  const approveAppointment = async (enrollmentID) => {
+  const updateAppointmentStatus = async (enrollmentID, status) => {
     try {
       const requestToUpdate = requestList.find(request => request.enrollmentID === enrollmentID);
       if (requestToUpdate) {
         const docRef = doc(db, "studentRequests", requestToUpdate.id);
-        await updateDoc(docRef, { approved: true, status: 'approved' });
+        await updateDoc(docRef, { approved: status === 'approved', status });
         setRequestList(prevRequests =>
           prevRequests.map(request =>
-            request.enrollmentID === enrollmentID ? { ...request, approved: true, status: 'approved' } : request
-          )
-        );
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const declineAppointment = async (enrollmentID) => {
-    try {
-      const requestToUpdate = requestList.find(request => request.enrollmentID === enrollmentID);
-      if (requestToUpdate) {
-        const docRef = doc(db, "studentRequests", requestToUpdate.id);
-        await updateDoc(docRef, { approved: false, status: 'declined' });
-        setRequestList(prevRequests =>
-          prevRequests.map(request =>
-            request.enrollmentID === enrollmentID ? { ...request, approved: false, status: 'declined' } : request
+            request.enrollmentID === enrollmentID ? { ...request, approved: status === 'approved', status } : request
           )
         );
       }
@@ -102,7 +84,7 @@ const Requests = ({ teacher }) => {
                   ) : request.status === 'declined' ? (
                     <span style={{color:'red'}}>Cancelled</span>
                   ) : (
-                    <button className='approve-btn' onClick={() => approveAppointment(request.enrollmentID)}>
+                    <button className='approve-btn' onClick={() => updateAppointmentStatus(request.enrollmentID, 'approved')}>
                       Approve
                     </button>
                   )}
@@ -113,7 +95,7 @@ const Requests = ({ teacher }) => {
                   ) : request.status === 'declined' ? (
                     <span style={{color:'red'}}>Cancelled</span>
                   ) : (
-                    <button className='delete-btn' onClick={() => declineAppointment(request.enrollmentID)}>
+                    <button className='delete-btn' onClick={() => updateAppointmentStatus(request.enrollmentID, 'declined')}>
                       Decline
                     </button>
                   )}
