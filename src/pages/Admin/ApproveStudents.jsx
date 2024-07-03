@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { getDocs, collection, doc, addDoc, updateDoc, deleteDoc } from "firebase/firestore"
-import { db } from "../../firebase"
+import React, { useEffect, useState, useCallback } from 'react';
+import { getDocs, collection, doc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const ApproveStudents = () => {
   // state variable for modifying teachersList : 
   const [studentList, setStudentList] = useState([]);
 
-  // to get teachers list at realtime : 
-  const getStudentList = async () => {
+  // to get teachers list at realtime :
+  const getStudentList = useCallback(async () => {
     // collection reference passed to get docs using getDocs() function :
     const studentsCollectionRef = collection(db, "studentsData");
     try {
       const data = await getDocs(studentsCollectionRef);
-      const filterData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      const filterData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       console.log(filterData);
       setStudentList(filterData);
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
-  }
+  }, []);
 
   // after every refresh it will display the teacher's list
   useEffect(() => {
-    getStudentList() // rerendering
+    getStudentList(); // rerendering
   }, [getStudentList]);
 
   const approveStudent = async (ID) => {
@@ -32,10 +31,9 @@ const ApproveStudents = () => {
       await updateDoc(studentRef, {
         approved: true
       });
-      window.alert('approved')
+      window.alert('approved');
       getStudentList(); // rerendering
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -48,9 +46,8 @@ const ApproveStudents = () => {
         password: student.password,
         approved: true
       });
-      console.log('Student approved and added to db')
-    }
-    catch (e) {
+      console.log('Student approved and added to db');
+    } catch (e) {
       console.log(e);
     }
   }
@@ -59,8 +56,7 @@ const ApproveStudents = () => {
     try {
       await deleteDoc(doc(db, "studentsData", ID));
       getStudentList(); // rerendering
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -73,7 +69,7 @@ const ApproveStudents = () => {
         </p>
       </div>
       <div className="approve-student-container tabular-view">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Enrollment ID</th>
@@ -84,18 +80,36 @@ const ApproveStudents = () => {
           </thead>
           <tbody>
             {studentList.map((student) => (
-              <tr>
+              <tr key={student.id}>
                 <th scope="row">{student.enrollmentID}</th>
                 <td>{student.studentName}</td>
-                <td><button className='approve-btn' onClick={() => { approveStudent(student.id); addApproveStudent(student); declineStudent(student.id); }}>Approve</button></td>
-                <td><button className='delete-btn' onClick={() => declineStudent(student.id)}>Decline</button></td>
+                <td>
+                  <button
+                    className='approve-btn'
+                    onClick={() => {
+                      approveStudent(student.id);
+                      addApproveStudent(student);
+                      declineStudent(student.id);
+                    }}
+                  >
+                    Approve
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className='delete-btn'
+                    onClick={() => declineStudent(student.id)}
+                  >
+                    Decline
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </section>
-  )
+  );
 }
 
-export default ApproveStudents
+export default ApproveStudents;
