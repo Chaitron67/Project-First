@@ -1,5 +1,4 @@
 import React from 'react';
-import React, { useState } from 'react';
 import './MyProfile.css';
 
 const TeacherProfile = ({ teacher }) => {
