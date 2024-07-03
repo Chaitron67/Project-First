@@ -24,7 +24,7 @@ const ApproveStudents = () => {
   // after every refresh it will display the teacher's list
   useEffect(() => {
     getStudentList() // rerendering
-  }, []);
+  }, [getStudentList]);
 
   const approveStudent = async (ID) => {
     const studentRef = doc(db, "studentsData", ID);
