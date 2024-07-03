@@ -22,7 +22,7 @@ const MyAppointments = ({ student, teacher }) => {
 
   useEffect(() => {
     getMyAppointmentsList();
-  }, []);
+  }, [getMyAppointmentsList]);
 
   return (
     <section className='main-book-appointment-section'>

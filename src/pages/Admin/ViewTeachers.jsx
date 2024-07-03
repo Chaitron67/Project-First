@@ -23,7 +23,7 @@ const ViewTeachers = () => {
 
   useEffect(() => {
     getTeacherList();
-  }, []);
+  }, [getTeacherList]);
 
   const handleUpdateClick = (teacher) => {
     setSelectedTeacher(teacher);

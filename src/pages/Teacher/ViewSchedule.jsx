@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./teacher.css"
-import { getDoc, collection, doc, deleteDoc } from "firebase/firestore"
+import { getDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../../firebase"
 
 const ViewSchedule = ({ teacher }) => {
@@ -29,7 +29,7 @@ const ViewSchedule = ({ teacher }) => {
 
   useEffect(() => {
     getTeacherSchedule();
-  }, []);
+  }, [getTeacherSchedule]);
 
 
   // onClick of the delete button : 

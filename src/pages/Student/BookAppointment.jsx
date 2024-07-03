@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "./student.css"
-import { getDocs, getDoc, collection, doc, updateDoc } from "firebase/firestore"
+import { getDocs, collection } from "firebase/firestore"
 import { db } from "../../firebase"
 import { useNavigate } from 'react-router-dom'
 
 const BookAppointment = (props) => {
   const [teachersData, setTeachersData] = useState([]);
-  const [teacherScheduleDate, setTeacherScheduleDate] = useState();
   const navigate = useNavigate();
 
   const getTeacherList = async () => {
@@ -15,7 +14,6 @@ const BookAppointment = (props) => {
       const data = await getDocs(collection(db, "scheduleData"));
       const filterData = data.docs.map(doc => ({ ...doc.data(), }));
       setTeachersData([...filterData]);
-      setTeacherScheduleDate("here");
       console.log(teachersData);
     }
     catch (e) {

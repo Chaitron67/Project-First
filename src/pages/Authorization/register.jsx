@@ -20,7 +20,7 @@ const Register = (props) => {
     // this is for checking if the input enrollmentID already exists or not in approvedStudentsData db : 
     const approvedStudentsCollectionRef = collection(db, "approvedStudentsData");
     try {
-      const data = await getDocs(studentsCollectionRef);
+      const data = await getDocs(approvedStudentsCollectionRef);
       const filterData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       console.log(filterData);
 

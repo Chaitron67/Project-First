@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Choose.css"
-import Navbar from '../Navigation/navbar'
 import { useNavigate } from 'react-router-dom'
 
 
