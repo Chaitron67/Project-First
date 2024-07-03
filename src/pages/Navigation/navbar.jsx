@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import "./navbar.css"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 
 const Navbar = (props) => {
@@ -41,7 +41,7 @@ const Navbar = (props) => {
       <nav class="navbar">
         <div class="navbar-container">
           <div className="left-section">
-            <a className='navbar-title'>{props.dashboardTitle} DASHBOARD</a>
+            <a className='navbar-title' href="/">{props.dashboardTitle} DASHBOARD</a>
           </div>
           <div className="right-section">
             <div className='admin-dashboard-links dashboard-links' style={{ display: 'none' }}>

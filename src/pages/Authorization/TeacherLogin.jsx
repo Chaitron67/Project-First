@@ -19,7 +19,7 @@ const TeacherLogin = ({ changeTitle, changeUser }) => {
 
     // check if for the Admin : 
     admin.forEach((admin) => {
-      if (uniqueID === admin.adminID && password == admin.password) {
+      if (uniqueID === admin.adminID && password === admin.password) {
         window.alert('Login successfully'); // admin successfully logged in 
         changeTitle('ADMIN'); // changing navBar
         navigate('/add-teacher'); // navigating to this route
