@@ -1,0 +1,44 @@
+.navbar {
+  background-color: black;
+  color: white;
+  height: 8vh;
+  padding: 0.5rem 1rem;
+  box-shadow: 1px 1px 1px 1px rgb(140, 140, 140);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-title {
+  text-decoration: none;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.page-links {
+  text-decoration: none;
+  color: yellow;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+}
+

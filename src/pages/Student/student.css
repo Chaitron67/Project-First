@@ -1,0 +1,103 @@
+.main-section-get-appointment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.get-appointment-container {
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.2rem gray;
+  background-color: #f3b3b3;
+  padding: 2rem 1.4rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.submit-appointment-btn {
+  color: white;
+  background-color: rgb(31, 77, 134);
+  border: none;
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  width: 100%;
+  border-radius: 2.5rem;
+  padding: 0.2rem 1rem;
+  -webkit-border-radius: 2.5rem;
+  -moz-border-radius: 2.5rem;
+  -ms-border-radius: 2.5rem;
+  -o-border-radius: 2.5rem;
+}
+
+.get-appointment-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-around;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-title {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: bold;
+}
+
+.detail-value {
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.inner-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(26, 26, 131);
+}
+
+.get-appointment-btn {
+    color: black;
+    background-color: rgb(97, 241, 57);
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    padding: 0.1rem 0.3rem;
+  
+    &:hover {
+      color: white;
+      background-color: blue;
+      transition: background-color 0.15s, color 0.15s;
+      -webkit-transition: background-color 0.15s, color 0.15s;
+      -moz-transition: background-color 0.15s, color 0.15s;
+      -ms-transition: background-color 0.15s, color 0.15s;
+      -o-transition: background-color 0.15s, color 0.15s;
+    }
+  
+    &:active {
+      opacity: 0.6;
+      transition: opacity 0.15s;
+      -webkit-transition: opacity 0.15s;
+      -moz-transition: opacity 0.15s;
+      -ms-transition: opacity 0.15s;
+      -o-transition: opacity 0.15s;
+  }
+}

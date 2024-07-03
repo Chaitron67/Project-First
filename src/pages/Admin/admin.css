@@ -1,0 +1,249 @@
+.main-section {
+  height: 80vh;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: red;
+}
+
+.add-teacher-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.add-teacher-container {
+  align-self: center;
+  border: none;
+  background-color: #ec6ef3;
+  height: 34rem;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.submit-btn {
+  color: white;
+  background-color: red;
+  border: none;
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  width: 100%;
+  border-radius: 2.5rem;
+  padding: 0.2rem 1rem;
+  -webkit-border-radius: 2.5rem;
+  -moz-border-radius: 2.5rem;
+  -ms-border-radius: 2.5rem;
+  -o-border-radius: 2.5rem;
+}
+
+.submit-btn:hover {
+  background-color: rgb(49, 230, 49);
+  color: black;
+  transition: background-color 0.15s, color 0.15s;
+  -webkit-transition: background-color 0.15s, color 0.15s;
+  -moz-transition: background-color 0.15s, color 0.15s;
+  -ms-transition: background-color 0.15s, color 0.15s;
+  -o-transition: background-color 0.15s, color 0.15s;
+}
+
+.submit-btn:active {
+  opacity: 0.5;
+  transition: opacity 0.1s;
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  -ms-transition: opacity 0.1s;
+  -o-transition: opacity 0.1s;
+}
+
+.tabular-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 2rem;
+}
+
+.update-btn {
+  color: black;
+  background-color: rgb(76, 65, 238);
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  padding: 0.1rem 0.3rem;
+
+  &:hover {
+    color: white;
+    background-color: blue;
+    transition: background-color 0.15s, color 0.15s;
+    -webkit-transition: background-color 0.15s, color 0.15s;
+    -moz-transition: background-color 0.15s, color 0.15s;
+    -ms-transition: background-color 0.15s, color 0.15s;
+    -o-transition: background-color 0.15s, color 0.15s;
+  }
+
+  &:active {
+    background-color: rgb(85, 241, 57);
+    transition: background-color 0.15s;
+    -webkit-transition: background-color 0.15s;
+    -moz-transition: background-color 0.15s;
+    -ms-transition: background-color 0.15s;
+    -o-transition: background-color 0.15s;
+  }
+}
+
+.delete-btn {
+  color: black;
+  background-color: rgb(248, 42, 42);
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  padding: 0.1rem 0.3rem;
+
+  &:hover {
+    background-color: red;
+    color: white;
+    transition: background-color 0.15s, color 0.15s;
+    -webkit-transition: background-color 0.15s, color 0.15s;
+    -moz-transition: background-color 0.15s, color 0.15s;
+    -ms-transition: background-color 0.15s, color 0.15s;
+    -o-transition: background-color 0.15s, color 0.15s;
+  }
+
+  &:active {
+    background-color: rgb(241, 226, 57);
+    transition: background-color 0.15s;
+    -webkit-transition: background-color 0.15s;
+    -moz-transition: background-color 0.15s;
+    -ms-transition: background-color 0.15s;
+    -o-transition: background-color 0.15s;
+  }
+}
+
+.approve-btn {
+  color: black;
+  background-color: rgb(97, 241, 57);
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  padding: 0.1rem 0.3rem;
+
+  &:hover {
+    color: white;
+    background-color: darkgreen;
+    transition: background-color 0.15s, color 0.15s;
+    -webkit-transition: background-color 0.15s, color 0.15s;
+    -moz-transition: background-color 0.15s, color 0.15s;
+    -ms-transition: background-color 0.15s, color 0.15s;
+    -o-transition: background-color 0.15s, color 0.15s;
+  }
+
+  &:active {
+    opacity: 0.6;
+    transition: opacity 0.15s;
+    -webkit-transition: opacity 0.15s;
+    -moz-transition: opacity 0.15s;
+    -ms-transition: opacity 0.15s;
+    -o-transition: opacity 0.15s;
+}
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
