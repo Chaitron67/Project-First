@@ -22,7 +22,7 @@ const Requests = ({ teacher }) => {
 
   useEffect(() => {
     getStudentRequestsList();
-  }, []);
+  }, [getStudentRequestsList]);
 
   const approveAppointment = async (enrollmentID) => {
     try {
