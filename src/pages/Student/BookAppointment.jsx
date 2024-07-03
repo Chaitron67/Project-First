@@ -23,7 +23,7 @@ const BookAppointment = (props) => {
 
   useEffect(() => {
     getTeacherList() // rerendering
-  }, []);
+  }, [getTeacherList]);
 
   const getAppointment = async (teacher) => {
     navigate('/get-appointment', { state: { teacher } });

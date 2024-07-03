@@ -19,7 +19,6 @@ const ViewSchedule = ({ teacher }) => {
         // docSnap.data() will be undefined in this case
         console.log("No such document!");
         setTeacherSchedule(null);
-
       }
     }
     catch (e) {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 770c26f9bc09d5670811cf82af71b23226000079
 import './MyProfile.css';
 
 const TeacherProfile = ({ teacher }) => {
