@@ -1,15 +1,46 @@
+.active {
+  background-color: rgb(202, 25, 25);
+  color: white;
+}
+
 .navbar {
   background-color: black;
   color: white;
-  height: 8vh;
+  height: 100%;
   padding: 0.5rem 1rem;
   box-shadow: 1px 1px 1px 1px rgb(140, 140, 140);
+  width: 100%;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+.menu span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.2rem;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-title {
@@ -18,27 +49,78 @@
   font-size: 1.6rem;
   font-weight: 700;
   cursor: pointer;
-}
-
-.dashboard-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  text-align: center;
 }
 
 li {
   list-style-type: none;
 }
 
+.link-container.open {
+  display: flex;
+}
+
 
 .page-links {
+  display: block;
   text-decoration: none;
   color: yellow;
   font-size: 1.2rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 
-  &:hover {
-    color: blue;
-    text-decoration: underline;
+  &:not(.active):hover {
+    background-color: rgb(117, 24, 24);
+    color: white;
   }
 }
 
+@media (max-width:480px) {
+  .menu {
+    display: flex;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .navbar-title {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  .dashboard-links {
+    flex-direction: column;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .link-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+
+    & li {
+      width: 100%;
+    }
+  }
+
+  .page-links {
+    font-size: 1.4rem;
+    margin: 0.2rem 0.3rem;
+  }
+
+  .left-section {
+    margin-top: 0.3rem;
+  }
+
+  .right-section {
+    width: 100%;
+  }
+}

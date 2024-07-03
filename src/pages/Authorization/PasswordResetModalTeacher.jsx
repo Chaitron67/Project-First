@@ -44,8 +44,8 @@ const PasswordResetModalTeacher = ({ onClose }) => {
         {successMessage && <p className="success-message">{successMessage}</p>}
         <form onSubmit={handlePasswordReset}>
           <div className="form-group">
-            <label>Teacher ID</label>
-            <input
+            <label className='form-label'>Teacher ID</label>
+            <input className='input-value'
               type="text"
               value={teacherID}
               onChange={(e) => setTeacherID(e.target.value)}
@@ -53,8 +53,8 @@ const PasswordResetModalTeacher = ({ onClose }) => {
             />
           </div>
           <div className="form-group">
-            <label>Confirm Teacher ID</label>
-            <input
+            <label className='form-label'>Confirm Teacher ID</label>
+            <input className='input-value'
               type="text"
               value={confirmTeacherID}
               onChange={(e) => setConfirmTeacherID(e.target.value)}
@@ -62,8 +62,8 @@ const PasswordResetModalTeacher = ({ onClose }) => {
             />
           </div>
           <div className="form-group">
-            <label>New Password</label>
-            <input
+            <label className='form-label'>New Password</label>
+            <input className='input-value'
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}

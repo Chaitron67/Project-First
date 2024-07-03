@@ -93,7 +93,7 @@ const TeacherLogin = ({ changeTitle, changeUser }) => {
             <div className="password-warning" style={{ marginTop: "1rem", flexWrap: 'wrap', color: 'red' }}></div>
           </div>
           <button type="submit" className="btn btn-primary">Login</button>
-          <p className="forgot-password" style={{marginTop:'1rem', cursor:'pointer'}} onClick={() => setShowResetModal(true)}>Forgot Password?</p>
+          <p className="form-label" style={{marginTop:'1rem', cursor:'pointer'}} onClick={() => setShowResetModal(true)}>Forgot Password?</p>
         </form>
       </div>
       {showResetModal && <PasswordResetModalTeacher onClose={() => setShowResetModal(false)} />}

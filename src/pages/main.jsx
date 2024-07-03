@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './main.css';
 import Choose from './Authorization/Choose';
 import { Routes, Route } from 'react-router-dom';
 import Register from './Authorization/register';

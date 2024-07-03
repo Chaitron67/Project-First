@@ -50,41 +50,40 @@ const UpdateTeacherModal = ({ teacher, onClose, onUpdate }) => {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleUpdate}>
           <div className="form-group">
-            <label>Teacher ID</label>
-            <input
+            <label className='form-label'>Teacher ID</label>
+            <input className='input-value'
               type="text"
               value={teacherID}
               onChange={(e) => setTeacherID(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Teacher Name</label>
-            <input
+            <label className='form-label'>Teacher Name</label>
+            <input className='input-value'
               type="text"
               value={teacherName}
               onChange={(e) => setTeacherName(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Department</label>
-            <select
+            <label className='form-label'>Department</label>
+            <select className='input-value'
               value={deptName}
               onChange={(e) => setDeptName(e.target.value)}
             >
-              <option value="">Select Department</option>
-              <option value="Information Technology">Information Technology</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
-              <option value="Computer Engineering">Computer Engineering</option>
-              <option value="Civil Engineering">Civil Engineering</option>
-              <option value="Electrical Engineering">Electrical Engineering</option>
-              <option value="Electronics and Communication Engineering">
+              <option  value="">Select Department</option>
+              <option className='input-value' value="Mechanical Engineering">Mechanical Engineering</option>
+              <option className='input-value' value="Computer Engineering">Computer Engineering</option>
+              <option className='input-value' value="Civil Engineering">Civil Engineering</option>
+              <option className='input-value' value="Electrical Engineering">Electrical Engineering</option>
+              <option className='input-value' value="Electronics and Communication Engineering">
                 Electronics and Communication Engineering
               </option>
             </select>
           </div>
           <div className="form-group">
-            <label>Subject</label>
-            <input
+            <label className='form-label'>Subject</label>
+            <input className='input-value'
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}

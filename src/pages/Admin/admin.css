@@ -247,3 +247,21 @@
   color: red;
   margin-bottom: 1rem;
 }
+
+
+@media (max-width:768px) {
+  .tabular-view {
+    margin: 0.5rem 0 0.2rem 0.015rem;
+    font-size: 0.9rem;
+    width: 96vw;
+  }
+
+  .add-teacher-container {
+    padding: 2.6rem 2.8rem;
+  }
+
+  .input-value {
+    margin-top: 0.1rem;
+    font-size: 1rem;
+  }
+}
