@@ -50,10 +50,15 @@
 
 ## Dashboards :-
 ### Admin Dashboard:
+
 ![Screenshot](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZutFlw29dVR4j8oDAQkH18y8GDN2w096SocpdAVxadep7ghHE5IkIE1JSkjiSOmy9nS_wmHDgDuq1b7AX1Rudyo2ZaM8Mc7RQ=w1910-h937-rw-v1)
+
 - Manage teacher registrations.
+
 ![Screenshot](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZQ7DFIWkMVCUPSqv7bRYOfMmWQLWu17E7rRHjYJhjyxFM_mgrGRUt_VkwovNOFgLmbt4W1SmdYfMW1jna8ACVfY6rvQJi2Sg=w1910-h937-rw-v1)
+
 - Approve student registrations.
+
 ![Screenshot](https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihYIco3wyTqpUe-GeQuCJM25anVuS2_NLjrUImviRsZPPXOY6x3f8NK2OtNCj5XaFh44Gl5i4BkAjj9H-R21FngAAhzDv72XX-4=w1910-h937-rw-v1)
 
 ### Teacher Dashboard:
